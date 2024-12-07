@@ -99,10 +99,10 @@ def preprocess_image(image):
         return None
 
 @st.cache_data
-def get_prediction(model, image):
+def get_prediction(model, _image):
     """Get model prediction for the image"""
     try:
-        processed_image = preprocess_image(image)
+        processed_image = preprocess_image(_image)
         if processed_image is not None:
             with st.spinner("Processing image..."):
                 prediction = model.predict(processed_image, verbose=0)
