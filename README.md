@@ -1,5 +1,4 @@
-# Wheat-pest--disease-image-classification
-# Wheat Disease Classification Project
+# Wheat Images Classification Project
 
 ## Overview
 An image classification model using deep learning to assist smallholder wheat farmers in diagnosing pests and diseases in wheat crops. The model is trained to identify various wheat crop conditions including Aphids (pest), Yellow Rust, Mildew, Fusarium Head Blight (diseases), and healthy wheat plants.
