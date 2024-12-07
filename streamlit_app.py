@@ -14,8 +14,8 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Function to set custom background style
-def set_custom_background():
+# Function to set custom background and styles
+def set_custom_styles():
     style = """
         <style>
         .stApp {
@@ -51,15 +51,16 @@ def set_custom_background():
         }
         .title-text {
             text-align: center;
-            color: #1D4F6F;
+            color: black;
             font-size: 3rem;
             font-weight: bold;
             margin-bottom: 1rem;
         }
         .subtitle-text {
             text-align: center;
-            color: #2E6B8E;
+            color: green;
             font-size: 1.5rem;
+            font-weight: bold;
             margin-bottom: 2rem;
         }
         footer {
@@ -73,8 +74,8 @@ def set_custom_background():
     """
     st.markdown(style, unsafe_allow_html=True)
 
-# Set the custom background
-set_custom_background()
+# Apply custom styles
+set_custom_styles()
 
 def load_model():
     """Load the trained model"""
@@ -127,7 +128,7 @@ def main():
     # Sidebar
     with st.sidebar:
         st.header("Navigation")
-        st.markdown("Explore:")
+        st.markdown("### Explore:")
         st.markdown("- 📁 Upload your wheat images")
         st.markdown("- 📊 View prediction results")
         st.markdown("- 🌾 Learn about diseases")
@@ -228,18 +229,14 @@ def main():
     with st.expander("About the Model"):
         st.write("""
         This application uses a deep learning model trained to identify common wheat diseases and pests.
-        
-        The model can detect:
-        - Aphids (Pest)
-        - Yellow Rust (Disease)
-        - Fusarium Head Blight (Disease)
-        - Mildew (Disease)
-        - Healthy Plants
-        
+
+        We are continuously updating our model to provide you with excellent service. 
+        Thank you for trusting our platform!
+
         For best results:
         - Upload clear, well-lit images
         - Ensure the affected area is clearly visible
-        - Try to minimize background noise in the image
+        - Minimize background noise in the image
         """)
     
     # Footer
