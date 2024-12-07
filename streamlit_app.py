@@ -2,7 +2,6 @@ import streamlit as st
 import tensorflow as tf
 from PIL import Image
 import numpy as np
-import os
 import pandas as pd
 import plotly.express as px
 
@@ -14,8 +13,8 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Function to set custom background and styles
-def set_custom_styles():
+# Function to set custom background style
+def set_custom_background():
     style = """
         <style>
         .stApp {
@@ -51,16 +50,15 @@ def set_custom_styles():
         }
         .title-text {
             text-align: center;
-            color: black;
+            color: #1D4F6F;
             font-size: 3rem;
             font-weight: bold;
             margin-bottom: 1rem;
         }
         .subtitle-text {
             text-align: center;
-            color: green;
+            color: #2E6B8E;
             font-size: 1.5rem;
-            font-weight: bold;
             margin-bottom: 2rem;
         }
         footer {
@@ -74,8 +72,8 @@ def set_custom_styles():
     """
     st.markdown(style, unsafe_allow_html=True)
 
-# Apply custom styles
-set_custom_styles()
+# Set the custom background
+set_custom_background()
 
 def load_model():
     """Load the trained model"""
@@ -128,7 +126,7 @@ def main():
     # Sidebar
     with st.sidebar:
         st.header("Navigation")
-        st.markdown("### Explore:")
+        st.markdown("Explore:")
         st.markdown("- 📁 Upload your wheat images")
         st.markdown("- 📊 View prediction results")
         st.markdown("- 🌾 Learn about diseases")
@@ -157,20 +155,6 @@ def main():
         st.markdown('<div class="upload-section">', unsafe_allow_html=True)
         st.subheader("Upload Image")
         uploaded_file = st.file_uploader("Choose a wheat image...", type=["jpg", "jpeg", "png"])
-        
-        # Example images section
-        if st.button("Try Example Image"):
-            example_dir = "example_images"
-            if os.path.exists(example_dir):
-                example_files = [f for f in os.listdir(example_dir) if f.endswith(('.jpg', '.jpeg', '.png'))]
-                if example_files:
-                    random_example = os.path.join(example_dir, np.random.choice(example_files))
-                    with open(random_example, "rb") as f:
-                        uploaded_file = f
-                else:
-                    st.warning("No example images found in the example_images directory.")
-            else:
-                st.warning("Example images directory not found.")
         st.markdown('</div>', unsafe_allow_html=True)
     
     with tab2:
@@ -222,21 +206,27 @@ def main():
                 st.error(f"Error processing image: {str(e)}")
                 st.error("Please make sure the uploaded file is a valid image file.")
         else:
-            st.write("Please upload an image or try an example image.")
+            st.write("Please upload an image to analyze.")
         st.markdown('</div>', unsafe_allow_html=True)
     
     # About section
     with st.expander("About the Model"):
         st.write("""
         This application uses a deep learning model trained to identify common wheat diseases and pests.
-
-        We are continuously updating our model to provide you with excellent service. 
-        Thank you for trusting our platform!
-
+        
+        The model can detect:
+        - Aphids (Pest)
+        - Yellow Rust (Disease)
+        - Fusarium Head Blight (Disease)
+        - Mildew (Disease)
+        - Healthy Plants
+        
         For best results:
         - Upload clear, well-lit images
         - Ensure the affected area is clearly visible
-        - Minimize background noise in the image
+        - Try to minimize background noise in the image
+        
+        We are continuously improving our model to provide the best service for you.
         """)
     
     # Footer
