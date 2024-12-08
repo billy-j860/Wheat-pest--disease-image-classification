@@ -112,7 +112,7 @@ def get_prediction(model, _image):
         st.error(f"Error during prediction: {str(e)}")
         return None
 
-# Updated class names
+# class names
 CLASS_NAMES = ['Aphid', 'Yellow Rust', 'Fusarium Head Blight', 'Mildew', 'Healthy']
 CLASS_DESCRIPTIONS = {
     'Aphid': 'Small sap-sucking insects that can cause significant damage to wheat crops.',
@@ -131,7 +131,7 @@ def main():
         st.markdown("- 📊 View prediction results")
         st.markdown("- 🌾 Learn about diseases")
         
-        # Add disease information in sidebar
+        #  disease information in sidebar
         st.markdown("---")
         st.markdown("### Disease Information")
         for class_name, description in CLASS_DESCRIPTIONS.items():
