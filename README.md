@@ -19,18 +19,18 @@ Develop an image classification model for diagnosing wheat pests and diseases, w
 ## Project Structure
 
 wheat_images_classification/
-├── data/                     # Original dataset
-│   ├── train/               
-│   ├── valid/               
-│   └── test/                
+ data/                     # Original dataset
+│ train/               
+│ valid/               
+│ test/                
 ├── processed_data/          # Preprocessed images (224x224)
-│   ├── train/
-│   ├── valid/
-│   └── test/
+│ train/
+│ valid/
+│ test/
 ├── balanced_data/           # Balanced dataset
-│   ├── train/
-│   ├── valid/
-│   └── test/
+│ train/
+│ valid/
+│ test/
 └── best_model.keras         # Saved model file
 
 ### Data Processing
